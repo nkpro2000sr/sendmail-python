@@ -62,6 +62,8 @@ if __name__ == "__main__":
 	# mail from and mail to
 	mail_from = "from_address"
 	mail_to = ["to_address"]
+	# authentication
+	auth = ("from_address","password") # None for anonymous
 	# subject
 	subject = "Subject"
 	# body
@@ -73,4 +75,4 @@ if __name__ == "__main__":
 	# massage
 	msg = get_massage(mail_from, mail_to, subject, body, attachments, inline_attachments)
 	# send
-	send_mail(mail_host, mail_port, mail_from, mail_to, msg, ("from_address","password"))
+	send_mail(mail_host, mail_port, mail_from, mail_to, msg, auth)
