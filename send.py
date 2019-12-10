@@ -50,7 +50,7 @@ def get_massage(mail_from, mail_to, subject, body, files=[], infiles=[]):
 	for file_ in files :
 		attach = MIMEText(open(file_, "rb").read(), "base64", "UTF-8")
 		attach['Content-Type'] = 'application/octet-stream'
-		attach['Content-Disposition'] = 'attachment; filename=%s' % os.split(file_)[-1]
+		attach['Content-Disposition'] = 'attachment; filename=%s' % os.path.split(file_)[-1]
 		msg.attach(attach)
 	# end
 	return msg
