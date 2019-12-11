@@ -28,7 +28,7 @@ def get_massage(mail_from, mail_to, subject, body, files=[], infiles=[]):
 	msg["To"] = ";".join(mail_to)
 	msg['Subject'] = subject
 	# body text html
-	html = '<div dir="auto">'+body+'</div>'
+	html = '<div dir="auto" nkid="Body">'+body+'</div>' # nkid is used to differentiate from infiles
 	# infiles as base64 string
 	inb64s = []
 	for infile in infiles :
@@ -39,7 +39,7 @@ def get_massage(mail_from, mail_to, subject, body, files=[], infiles=[]):
 		inb64s.append(b64)
 	# body infiles html
 	if len(inb64s) :
-		html += '<div dir="auto">'+''.join(inb64s)+'</div>'
+		html += '<div dir="auto" nkid="InFiles">'+''.join(inb64s)+'</div>'
 	content = MIMEText(html, 'html', 'UTF-8')
 	msg.attach(content)
 	# attach
