@@ -9,8 +9,7 @@ from email.mime.text import MIMEText
 
 def send_mail(mail_host, mail_port, mail_from, mail_to, msg, auth= None):
 	# connect smtp server, set debug to see reply information
-	smtp = smtplib.SMTP()
-	smtp.connect(mail_host, mail_port)
+	smtp = smtplib.SMTP(mail_host, mail_port)
 	smtp.set_debuglevel(1)
 	# authentication
 	if auth :
