@@ -21,7 +21,7 @@ def send_mail(mail_host, mail_port, mail_from, mail_to, msg, auth= None):
 	# quit
 	smtp.quit()
 
-def get_massage(mail_from, mail_to, subject, body, files=[], infiles=[]):
+def get_message(mail_from, mail_to, subject, body, files=[], infiles=[]):
 	msg = MIMEMultipart('alternative')
 	# from, to, subject
 	msg["From"] = mail_from
@@ -69,6 +69,6 @@ if __name__ == "__main__":
 	# inline attachment
 	inline_attachments = []
 	# massage
-	msg = get_massage(mail_from, mail_to, subject, body, attachments, inline_attachments)
+	msg = get_message(mail_from, mail_to, subject, body, attachments, inline_attachments)
 	# send
 	send_mail(mail_host, mail_port, mail_from, mail_to, msg, auth)
